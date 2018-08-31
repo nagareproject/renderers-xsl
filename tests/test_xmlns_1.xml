@@ -2,7 +2,4 @@
 <hello>
   <world language="english">hello world</world>
   <world language="french">bonjour monde</world>
-  <world language="chinese">你好世界</world>
-  <world language="russian">здравствулте! мир</world>
-  <world language="japanese">こんにちは世界</world>
 </hello>
