@@ -20,8 +20,8 @@ class Renderer(xml.XmlRenderer):
     content_type = 'text/xsl'
     namespace = 'http://www.w3.org/1999/XSL/Transform'
 
-    def __init__(self, parent=None):
-        super(Renderer, self).__init__(parent)
+    def __init__(self, parent=None, *args, **kw):
+        super(Renderer, self).__init__(parent, *args, **kw)
 
         self.namespaces = {'xsl': self.namespace}
         self.default_namespace = 'xsl'

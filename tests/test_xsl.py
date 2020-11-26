@@ -7,6 +7,8 @@
 # this distribution.
 # --
 
+# flake8: noqa
+
 import os
 
 from lxml import etree
