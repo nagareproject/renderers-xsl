@@ -1,5 +1,5 @@
 # --
-# Copyright (c) 2008-2022 Net-ng.
+# Copyright (c) 2008-2023 Net-ng.
 # All rights reserved.
 #
 # This software is licensed under the BSD License, as described in
@@ -7,15 +7,15 @@
 # this distribution.
 # --
 
-"""XSL v2 renderer"""
+"""XSL v2 renderer."""
+
+from nagare.renderers.xml import TagProp
 
 from . import xsl
-from nagare.renderers.xml import TagProp
 
 
 class Renderer(xsl.Renderer):
-    """ The XSL renderer
-    """
+    """The XSL renderer."""
 
     # The XSL tags
     # ------------
@@ -26,10 +26,13 @@ class Renderer(xsl.Renderer):
     copy = TagProp('copy', {'copy-namespaces', 'inherit-namespaces', 'use-attribute-sets', 'type', 'validation'})
     copy_of = TagProp('copy-of', {'select', 'copy-namespaces', 'type', 'validation'})
     document = TagProp('document', {'type', 'validation'})
-    element = TagProp('element', {'name', 'namespace', 'inherit-namespaces', 'use-attribute-sets', 'type', 'validation'})
-    for_each_group = TagProp('for-each-group', {
-        'select', 'group-by', 'group-adjacent', 'group-starting-with', 'group-ending-with', 'collation'
-    })
+    element = TagProp(
+        'element', {'name', 'namespace', 'inherit-namespaces', 'use-attribute-sets', 'type', 'validation'}
+    )
+    for_each_group = TagProp(
+        'for-each-group',
+        {'select', 'group-by', 'group-adjacent', 'group-starting-with', 'group-ending-with', 'collation'},
+    )
     function = TagProp('function', {'name', 'override', 'as'})
     import_schema = TagProp('import-schema', {'namespace', 'schema-location'})
     key = TagProp('key', {'name', 'match', 'use', 'collation'})
@@ -37,21 +40,56 @@ class Renderer(xsl.Renderer):
     namespace_ = TagProp('namespace', {'name', 'select'})
     next_match = TagProp('next-match')
     non_matching_substring = TagProp('non-matching-substring')
-    output = TagProp('output', {
-        'name', 'method', 'byte-order-mark', 'cdata-section-elements', 'doctype-public', 'doctype-system',
-        'encoding', 'escape-uri-attributes', 'include-content-type', 'indent', 'media-type', 'normalization-form',
-        'omit-xml-declaration', 'standalone', 'use-character-maps', 'version'
-    })
+    output = TagProp(
+        'output',
+        {
+            'name',
+            'method',
+            'byte-order-mark',
+            'cdata-section-elements',
+            'doctype-public',
+            'doctype-system',
+            'encoding',
+            'escape-uri-attributes',
+            'include-content-type',
+            'indent',
+            'media-type',
+            'normalization-form',
+            'omit-xml-declaration',
+            'standalone',
+            'use-character-maps',
+            'version',
+        },
+    )
     output_character = TagProp('output-character', {'character', 'string'})
     param = TagProp('param', {'name', 'select', 'as', 'required', 'tunnel'})
     perform_sort = TagProp('perform-sort', {'select'})
     processing_instruction = TagProp('processing-instruction', {'name', 'select'})
-    result_document = TagProp('result-document', {
-        'format', 'href', 'type', 'validation', 'method', 'byte-order-mark', 'cdata-section-elements',
-        'doctype-public', 'doctype-system', 'encoding', 'escape-uri-attributes', 'include-content-type',
-        'indent', 'media-type', 'normalization-form', 'omit-xml-declaration', 'standalone',
-        'undeclare-prefixes', 'use-character-maps', 'output-version'
-    })
+    result_document = TagProp(
+        'result-document',
+        {
+            'format',
+            'href',
+            'type',
+            'validation',
+            'method',
+            'byte-order-mark',
+            'cdata-section-elements',
+            'doctype-public',
+            'doctype-system',
+            'encoding',
+            'escape-uri-attributes',
+            'include-content-type',
+            'indent',
+            'media-type',
+            'normalization-form',
+            'omit-xml-declaration',
+            'standalone',
+            'undeclare-prefixes',
+            'use-character-maps',
+            'output-version',
+        },
+    )
     sequence = TagProp('sequence', {'select'})
     sort = TagProp('sort', {'select', 'lang', 'data-type', 'order', 'case-order', 'collation', 'stable'})
     template = TagProp('template', {'match', 'name', 'priority', 'mode', 'as'})

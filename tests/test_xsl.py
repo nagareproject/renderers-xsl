@@ -1,5 +1,5 @@
 # --
-# Copyright (c) 2008-2022 Net-ng.
+# Copyright (c) 2008-2023 Net-ng.
 # All rights reserved.
 #
 # This software is licensed under the BSD License, as described in
@@ -24,20 +24,9 @@ def create_stylesheet(x):
         x.output(encoding='utf-8', method='html'),
         x.template(x.copy(x.apply_templates(select='@*|node()')), match='@*|node()'),
         x.template(x.copy(x.apply_templates), match='world'),
-        x.template(
-            h.html(
-                h.head,
-                h.body(
-                    x.apply_templates(select='@*|node()')
-                )
-            ),
-            match='hello'
-        ),
-        x.template(
-            x.element(x.value_of(select="@language"), ' : ', x.value_of(select="."), name="h1"),
-            match="world"
-        ),
-        version='1.0'
+        x.template(h.html(h.head, h.body(x.apply_templates(select='@*|node()'))), match='hello'),
+        x.template(x.element(x.value_of(select="@language"), ' : ', x.value_of(select="."), name="h1"), match="world"),
+        version='1.0',
     )
 
 
@@ -58,12 +47,7 @@ def test1():
 
 def test2():
     for x in (xsl.Renderer(), xsl2.Renderer(), xsl3.Renderer()):
-        style_sheet = x.stylesheet(
-            x.output(encoding='utf-8'),
-            x.template(
-                x.copy_of(select='.'), match='/'
-            )
-        )
+        style_sheet = x.stylesheet(x.output(encoding='utf-8'), x.template(x.copy_of(select='.'), match='/'))
 
         h = xml.Renderer()
         page = h.html(h.h1('Hello'), h.h2('World'))
@@ -76,12 +60,7 @@ def test2():
 
 def test_identity():
     for x in (xsl.Renderer(), xsl2.Renderer(), xsl3.Renderer()):
-        style_sheet = x.stylesheet(
-            x.output(encoding='utf-8'),
-            x.template(
-                x.copy_of(select='.'), match='/'
-            )
-        )
+        style_sheet = x.stylesheet(x.output(encoding='utf-8'), x.template(x.copy_of(select='.'), match='/'))
 
         h = xml.Renderer()
 
