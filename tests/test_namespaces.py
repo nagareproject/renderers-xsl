@@ -1,5 +1,5 @@
 # --
-# Copyright (c) 2008-2024 Net-ng.
+# Copyright (c) 2014-2025 Net-ng.
 # All rights reserved.
 #
 # This software is licensed under the BSD License, as described in
@@ -7,8 +7,7 @@
 # this distribution.
 # --
 
-from nagare.renderers import xml
-from nagare.renderers import xsl, xsl2, xsl3
+from nagare.renderers import xml, xsl, xsl2, xsl3
 
 
 def test_namespaces():

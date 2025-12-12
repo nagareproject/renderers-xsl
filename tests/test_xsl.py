@@ -1,5 +1,5 @@
 # --
-# Copyright (c) 2008-2024 Net-ng.
+# Copyright (c) 2014-2025 Net-ng.
 # All rights reserved.
 #
 # This software is licensed under the BSD License, as described in
@@ -7,14 +7,11 @@
 # this distribution.
 # --
 
-# flake8: noqa
-
 import os
 
 from lxml import etree
 
-from nagare.renderers import xml
-from nagare.renderers import xsl, xsl2, xsl3
+from nagare.renderers import xml, xsl, xsl2, xsl3
 
 
 def create_stylesheet(x):
@@ -25,7 +22,7 @@ def create_stylesheet(x):
         x.template(x.copy(x.apply_templates(select='@*|node()')), match='@*|node()'),
         x.template(x.copy(x.apply_templates), match='world'),
         x.template(h.html(h.head, h.body(x.apply_templates(select='@*|node()'))), match='hello'),
-        x.template(x.element(x.value_of(select="@language"), ' : ', x.value_of(select="."), name="h1"), match="world"),
+        x.template(x.element(x.value_of(select='@language'), ' : ', x.value_of(select='.'), name='h1'), match='world'),
         version='1.0',
     )
 
